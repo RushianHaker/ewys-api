@@ -13,7 +13,6 @@ import org.springframework.context.annotation.Profile;
 
 import javax.sql.DataSource;
 
-
 /**
  * Формирует датасурсы по имеющемся в энвайронменте параметрам.
  * Может быть подменён конфигуом на уровне тест-контейнеров, что бы там использовать свои реквизиты
