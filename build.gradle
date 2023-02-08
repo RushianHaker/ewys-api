@@ -1,22 +1,44 @@
 plugins {
-	id 'java'
-	id 'org.springframework.boot' version '3.0.2'
-	id 'io.spring.dependency-management' version '1.1.0'
+    id 'java'
+    id 'org.springframework.boot' version '3.0.2'
+    id 'io.spring.dependency-management' version '1.1.0'
 }
 
 group = 'com.api'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
 repositories {
-	mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.5.6'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc:2.5.6'
+    implementation 'org.springframework.data:spring-data-commons:2.6.0'
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation group: 'com.google.code.gson', name: 'gson', version: '2.9.0'
+    implementation 'org.postgresql:postgresql:42.3.1'
+
+    runtimeOnly 'org.postgresql:postgresql'
+    compileOnly 'org.jetbrains:annotations:16.0.2'
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    compileOnly group: 'junit', name: 'junit', version: '4.13.1'
+    compileOnly group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.29'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+    testImplementation 'org.projectlombok:lombok:1.18.22'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation group: 'org.testcontainers', name: 'postgresql', version: '1.17.4'
 }
 
 tasks.named('test') {
-	useJUnitPlatform()
+    useJUnitPlatform()
 }
