@@ -15,10 +15,10 @@ public class UserModelMapper implements RowMapper<UserModel> {
     public UserModel mapRow(@NotNull ResultSet rs, int rowNum) throws SQLException {
         return new UserModel(
                 rs.getInt("id"),
+                rs.getString("login"),
+                rs.getString("password"),
                 rs.getString("first_name"),
                 rs.getString("last_name"),
-                rs.getString("age"),
-                rs.getString("login"),
-                rs.getInt("password"));
+                rs.getInt("age"));
     }
 }
