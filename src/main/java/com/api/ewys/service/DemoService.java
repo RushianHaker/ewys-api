@@ -18,20 +18,22 @@ import java.util.List;
 public class DemoService {
     protected final IDemoRepository demoRepository;
 
-    /**
-     * Отдает список карточек модели из БД
-     */
-    @NotNull
-    public List<DemoModel> allDemoInfoListByNames(@NotNull List<String> names) {
-        if(names.isEmpty()) return new ArrayList<>();
-        return demoRepository.batchSelect(names);
+    public List<DemoModel> getDemoInfoList() {
+        return demoRepository.getDemoInfoList();
     }
 
-    /**
-     * Сохраняет список карточек модели в БД
-     */
+    public DemoModel getDemoInfoById(long id) {
+        return demoRepository.getDemoInfoById(id);
+    }
+
+    @NotNull
+    public List<DemoModel> getDemoInfoListByNames(@NotNull List<String> names) {
+        if (names.isEmpty()) return new ArrayList<>();
+        return demoRepository.getDemoInfoListByNames(names);
+    }
+
     public void saveDemoInfoList(@NotNull List<DemoModel> demoList) {
-        if(demoList.isEmpty()) return;
+        if (demoList.isEmpty()) return;
 
         demoRepository.batchInsert(demoList);
     }

@@ -1,5 +1,5 @@
 INSERT INTO demo_table( id, name, full_name) VALUES ( 0, 'Mark', 'Vasquez');
-INSERT INTO demo_table( id, name, full_name) VALUES ( 0, 'Anna', 'Ivanov');
-INSERT INTO demo_table( id, name, full_name) VALUES ( 0, 'Cris', 'Dolan');
-INSERT INTO demo_table( id, name, full_name) VALUES ( 0, 'Devid', 'Isaev');
-INSERT INTO demo_table( id, name, full_name) VALUES ( 0, 'Andry', 'Markovich');
+INSERT INTO demo_table( id, name, full_name) VALUES ( 1, 'Anna', 'Ivanov');
+INSERT INTO demo_table( id, name, full_name) VALUES ( 2, 'Cris', 'Dolan');
+INSERT INTO user_table (id, first_name, last_name, age, login, password) VALUES (1, 'Anton', 'Ivanov', 45, 'test', 'test');
+INSERT INTO user_table (id, first_name, last_name, age, login, password) VALUES (2, 'Zahar', 'Petrov', 26, 'login', 'password');

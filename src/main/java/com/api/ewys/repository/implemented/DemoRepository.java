@@ -33,9 +33,18 @@ public class DemoRepository implements IDemoRepository {
         this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
     }
 
+    @Override
+    public List<DemoModel> getDemoInfoList() {
+        return jdbcTemplate.query("SELECT id, name, full_name FROM demo_table", DEMO_MODEL_MAPPER);
+    }
 
     @Override
-    public List<DemoModel> batchSelect(@NotNull List<String> names) {
+    public DemoModel getDemoInfoById(long id) {
+        return jdbcTemplate.queryForObject("SELECT id, name, full_name FROM demo_table WHERE id = ?", DEMO_MODEL_MAPPER, id);
+    }
+
+    @Override
+    public List<DemoModel> getDemoInfoListByNames(@NotNull List<String> names) {
 
         /*С пустым IN запрос не пройдёт в этом виде, но оно и не нужно*/
         if (names.size() == 0) return new ArrayList<>();
